@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 const _inter = Inter({ subsets: ["latin"] })
 
@@ -39,8 +41,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
-        {children}
+      <body className="font-sans antialiased">
+        {/* Global Header */}
+        <Header />
+
+        {/* Page Content */}
+        <main>{children}</main>
+
+        {/* Global Footer */}
+        <Footer />
+
+        {/* Analytics */}
         <Analytics />
       </body>
     </html>
